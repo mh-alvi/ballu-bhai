@@ -36,7 +36,7 @@
                         <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="register.php" type="submit" class="btn btn-dark">Register</a>
+                    <a href="register" type="submit" class="btn btn-dark">Register</a>
                 </form>
             </div>
         </div>

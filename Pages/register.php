@@ -1,22 +1,3 @@
-<?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-include_once 'guest.php';
-include_once 'app/User.php';
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user = new User;
-    $user->name = $_POST['name'];
-    $user->email = $_POST['email'];
-    $user->password = $_POST['password'];
-
-    if ($user->register()) {
-        $_SESSION['success'] = "Registration Successful!!";
-    } else {
-        $_SESSION['error'] = "Registration Failed!!";
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="row justify-content-center">
             <div class="col-sm-6 pt-4">
                 <h2>Register form</h2>
-                <form action="register.php" method="POST">
+                <form action="submit-register" method="POST">
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
@@ -67,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="login.php" type="submit" class="btn btn-dark">Login</a>
+                    <a href="login" type="submit" class="btn btn-dark">Login</a>
                 </form>
             </div>
         </div>
