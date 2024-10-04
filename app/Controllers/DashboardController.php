@@ -12,7 +12,7 @@ class DashboardController
         $_SESSION = [];
 
         session_destroy();
-
+        require('Pages/login.php');
         // header('Location: login.php');
         exit();
     }

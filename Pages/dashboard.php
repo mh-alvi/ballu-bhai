@@ -42,7 +42,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <a href="logout.php" class="btn btn-dark btn-sm">Logout</a>
+                <a href="logout" class="btn btn-dark btn-sm">Logout</a>
             </div>
         </div>
     </div>
