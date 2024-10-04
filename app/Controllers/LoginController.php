@@ -21,7 +21,7 @@ class LoginController
             $_SESSION['id'] = $user->id;
             $_SESSION['name'] = $user->name;
             $_SESSION['email'] = $user->email;
-            require('Pages/dashboard.php');
+            redirect('dashboard');
             exit();
         } else {
             $_SESSION['error'] = "Login Failed!!";

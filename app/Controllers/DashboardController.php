@@ -5,14 +5,14 @@ namespace App\Controllers;
 class DashboardController
 {
     public function index(){
-        echo "Dashboard";
+        require_once('Pages/dashboard.php');
     }
     public function logout()
     {
         $_SESSION = [];
 
         session_destroy();
-        require('Pages/login.php');
+        redirect('login');
         // header('Location: login.php');
         exit();
     }
