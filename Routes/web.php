@@ -1,7 +1,6 @@
 <?php
 
-use App\Middleware\Auth;
-use App\Middleware\Guest;
+use App\Middleware\{Auth, Guest};
 use App\Services\Route;
 
 Route::get('/', 'HomeController', 'index');

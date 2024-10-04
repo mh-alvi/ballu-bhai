@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use App\Config\DatabaseConnection;
 use PDO;
 
-class User extends DatabaseConnection
+class User extends BaseModel
 {
     private $table_name = 'users';
     public $id;

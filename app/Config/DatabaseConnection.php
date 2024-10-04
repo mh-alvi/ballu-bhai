@@ -24,4 +24,19 @@ class DatabaseConnection
             echo "Connection failed: " . $e->getMessage();
         }
     }
+
+    public function fetchData($query, $params = []){
+        try {
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    public function fetchsingle($query){
+        $stmt = $this->connection->query($query);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

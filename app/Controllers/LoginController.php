@@ -8,6 +8,12 @@ class LoginController
 {
     public function index()
     {
+        // $user = new User;
+        // $data = $user->fetchData('select * from users');
+        // $data = $user->fetchsingle('select * from users where id=1');
+        // echo '<pre>';
+        // print_r($data);
+        // exit;
         view('Auth.login');
     }
     public function login()
