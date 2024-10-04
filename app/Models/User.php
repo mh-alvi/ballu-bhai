@@ -1,6 +1,9 @@
 <?php
 
-include_once 'Database.php';
+namespace App\Models;
+
+use App\Config\DatabaseConnection;
+use PDO;
 
 class User extends DatabaseConnection
 {
@@ -12,14 +15,14 @@ class User extends DatabaseConnection
 
     public function register()
     {
-        $query = "SELECT * FROM ".$this->table_name. " WHERE email = :email";
+        $query = "SELECT * FROM " . $this->table_name . " WHERE email = :email";
         $stmt = $this->connection->prepare($query);
         $stmt->bindParam(':email', $this->email);
         $stmt->execute();
-        if($stmt->rowCount() > 0){
+        if ($stmt->rowCount() > 0) {
             return false;
         }
-        
+
         $query = "INSERT INTO " . $this->table_name . "(name, email, password)
                 VALUES (:name, :email, :password)";
         $stmt = $this->connection->prepare($query);
@@ -30,13 +33,13 @@ class User extends DatabaseConnection
 
         if ($stmt->execute()) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
     public function login()
     {
-        $query = "SELECT * FROM ".$this->table_name. " WHERE email = :email";
+        $query = "SELECT * FROM " . $this->table_name . " WHERE email = :email";
         $stmt = $this->connection->prepare($query);
         $stmt->bindParam(':email', $this->email);
         $row = $stmt->execute();
@@ -47,7 +50,7 @@ class User extends DatabaseConnection
             $this->name = $row['name'];
             $this->email = $row['email'];
             return true;
-        }else{
+        } else {
             return false;
         }
     }
