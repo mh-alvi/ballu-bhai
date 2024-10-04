@@ -1,24 +1,3 @@
-<?php
-
-include_once 'guest.php';
-include_once 'app/User.php';
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user = new User;
-    $user->email = $_POST['email'];
-    $user->password = $_POST['password'];
-
-    if ($user->login()) {
-        $_SESSION['success'] = "Login successful";
-        $_SESSION['id'] = $user->id;
-        $_SESSION['name'] = $user->name;
-        $_SESSION['email'] = $user->email;
-        header('Location: dashboard.php');
-        exit();
-    } else {
-        $_SESSION['error'] = "Login Failed!!";
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="row justify-content-center">
             <div class="col-sm-6 pt-4">
                 <h2>Login form</h2>
-                <form action="login.php" method="POST">
+                <form action="submit-login" method="POST">
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
