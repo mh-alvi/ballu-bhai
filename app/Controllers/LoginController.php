@@ -8,7 +8,7 @@ class LoginController
 {
     public function index()
     {
-        require('Pages/login.php');
+        view('Auth.login');
     }
     public function login()
     {

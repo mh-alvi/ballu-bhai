@@ -8,7 +8,7 @@ class RegisterController
 {
     public function index()
     {
-        require_once('Pages/register.php');
+        view('Auth.register');
     }
     public function register()
     {
@@ -19,7 +19,7 @@ class RegisterController
 
         if ($user->register()) {
             $_SESSION['success'] = "Registration Successful!!";
-            redirect('register');
+            redirect('login');
             exit();
         } else {
             $_SESSION['error'] = "Registration Failed!!";

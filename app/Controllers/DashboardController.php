@@ -5,7 +5,7 @@ namespace App\Controllers;
 class DashboardController
 {
     public function index(){
-        require_once('Pages/dashboard.php');
+        view('dashboard');
     }
     public function logout()
     {
