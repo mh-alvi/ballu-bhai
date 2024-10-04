@@ -1,7 +1,15 @@
 <?php
-session_start();
 
-if(!isset($_SESSION['id'])){
-    header("Location: login.php");
-    exit();
+namespace App\Middleware;
+
+class Auth
+{
+    public function handle()
+    {
+
+        if (!isset($_SESSION['id'])) {
+            redirect("login");
+            exit();
+        }
+    }
 }

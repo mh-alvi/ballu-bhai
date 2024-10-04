@@ -1,7 +1,15 @@
 <?php
-session_start();
 
-if(isset($_SESSION['id'])){
-    header("Location: dashboard.php");
-    exit();
+namespace App\Middleware;
+
+class Guest
+{
+    public function handle()
+    {
+
+        if (isset($_SESSION['id'])) {
+            redirect("dashboard");
+            exit();
+        }
+    }
 }
