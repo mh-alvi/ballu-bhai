@@ -14,3 +14,6 @@ function redirect($uri){
     header("Location: $uri");
     exit;
 }
+function pageAdd($file_path){
+    include(APP_ROOT.'/Pages/'.$file_path);
+}
